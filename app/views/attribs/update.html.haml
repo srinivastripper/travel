@@ -1,0 +1,19 @@
+%title= fetch_data.title
+%body{:style => "font-family: #{fetch_data.font}; background-color: #{"##{fetch_data.color}"}"}
+#content
+  .container
+    .row.p-wrapper
+      .col-xs-12
+        .col-md-4.col-md-offset-4{:style => "margin-top:10%;"}
+          .text-center.form-group
+            = image_tag 'traveltripperlogo.png'
+          .text-center.form-group
+            = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam commodo a nunc a congue. Duis a dictum lorem. Vestibulum eu volutpat diam, vel tempor velit. Donec in hendrerit leo, vitae interdum est. Quisque ornare lacus eu congue lacinia. Suspendisse varius ligula vitae libero condimentum sodales. Duis facilisis suscipit velit quis sodales. Praesent vitae posuere nibh."
+          .form-group
+            = text_field_tag :title,  fetch_data.title, placeholder: "Title", class: 'form-control test', autofocus: true
+          .form-group
+            = select_tag :font,  options_for_select(FONTNAMES,:selected=>fetch_data.font), {:class => 'form-control'}
+          .form-group
+            = text_field_tag :color, fetch_data.color, placeholder: "Color", class: "form-control jscolor"
+          .actions{:style => "margin-top: 20px;"}
+            %input.btn.btn-lg.btn-primary.update_apply{:type => "button", :value => "Apply"}

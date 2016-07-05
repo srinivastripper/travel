@@ -1,0 +1,15 @@
+<% environment.context_class.instance_eval { include ApplicationHelper } %>
+
+    $(document).ready(function() {
+        $(".update_apply").click(function(){
+            var title= $("#title").val();
+            var font= $("#font").val();
+            var color = $("#color").val();
+            $.ajax({
+                type: "POST",
+                dataType: 'script',
+                url: encodeURI('attribs/update'),
+                data: {title: title, font: font, color: color, id: <%=fetch_data.id%>}
+            });
+        });
+        });
